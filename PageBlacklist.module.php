@@ -3,9 +3,8 @@
 /**
  * PageBlacklist module
  *
- * A starting point skeleton from which to build your own Process module. 
- * Process modules are used primarily for building admin applications and tools.
- * This module also creates a page in the ProcessWire admin to run itself from.
+ * With this simple module you can easily add pages to a global blacklist and 
+ * and use it for filtering of subsequent selector queries.
  * 
  * Copyright 2015 by Orkan Alat
  * Licensed under Creative Commons CC0, see LICENSE.CC0
@@ -61,6 +60,10 @@ class PageBlacklist extends WireData implements Module
 
             if(is_integer($firstEntry)) {
                 $this->addPagesById($value);
+            }
+
+            if($firstEntry instanceof Page) {
+                $this->addPages($value);
             }
         }
 
