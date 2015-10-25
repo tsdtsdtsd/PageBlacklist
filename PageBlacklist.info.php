@@ -10,7 +10,7 @@ $info = array(
     'summary' => 'Page blacklisting helper module for ProcessWire.',
     'version' => '0.2.1', 
 
-    // 'href' => '',
+    'href' => 'https://github.com/tsdtsdtsd/PageBlacklist',
 	'author' => 'Orkan Alat', 
 
     'singular' => true, 
