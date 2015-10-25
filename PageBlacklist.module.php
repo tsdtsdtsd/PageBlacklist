@@ -31,8 +31,7 @@ class PageBlacklist extends WireData implements Module
      */
     public function init() 
     {
-        wire("fuel")->set("pageBlacklist", $this);
-        parent::init();
+        wire()->fuel->set("pageBlacklist", $this);
     }
 
     /**
@@ -156,11 +155,11 @@ class PageBlacklist extends WireData implements Module
      * Returns the current blacklisted page IDs
      * 
      * @param  boolean  If false, will prepend "id!=" to string. Default: false
-     * @param  string   Prefix. Default: empty string
-     * @param  string   Suffix. Default: empty string
+     * @param  string   Prefix. Default: single space
+     * @param  string   Suffix. Default: single space
      * @return string
      */
-    public function getAsString($idListOnly = false, $prefix = '', $suffix = '')
+    public function getAsString($idListOnly = false, $prefix = ' ', $suffix = ' ')
     {
         $this->_blacklistedPages = array_filter($this->_blacklistedPages);
 
