@@ -58,6 +58,12 @@ This will modify the selector and create something like:
 
     'template="basic-page" id!=1012|1013|1025'
 
+## Beware of thy cache!
+
+When using markup cache, this module is naturally not able to collect the pages from cached code. Subsequent selectors may include pages from cached content.
+
+Currently I'm storing some metainfo to the cache as an addition to evade the problem on personal projects.
+
 ## Complete list of methods
 
 tbc
