@@ -8,6 +8,8 @@ With this simple module you can easily add pages to a global blacklist and use i
 
 For ease of use, the modules adds a ```$pageBlacklist``` variable to the template scope. Usualy you will only need one method:
 
+### Add to blacklist
+
     $pageBlacklist->add($something);
 
 ```$something``` can be many things and is just a wraper for the internal API. Here is a list of possible values:
@@ -35,6 +37,26 @@ For ease of use, the modules adds a ```$pageBlacklist``` variable to the templat
     $pageBlacklist->add(array(
         $pageObject, $pageObject2, $pageObject3
     ));
+
+### Removing pages from blacklist
+
+Currently you are only able to remove pages by passing Page objects. More possibilities will be implemented soon:
+
+    $pageBlacklist->removePage($pageObject);
+
+Also you can clear the complete blacklist:
+
+    $pageBlacklist->reset();
+
+### Using the blacklist / retrieving data
+
+The simples approach is to add the ```$pageBlacklist``` variable to any selector:
+
+    $list = $pages->find('template="basic-page"' . $pageBlacklist);
+
+This will modify the selector and create something like:
+
+    'template="basic-page" id!=1012|1013|1025'
 
 ## Complete list of methods
 
